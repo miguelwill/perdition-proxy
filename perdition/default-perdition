@@ -1,0 +1,22 @@
+RUN_PERDITION=yes
+
+
+POP3=yes
+
+POP3_FLAGS=" --ssl_mode tls_listen "
+
+POP3S=yes
+
+POP3S_FLAGS=" --ssl_mode ssl_listen,ssl_outgoing "
+
+IMAP4=yes
+
+IMAP4_FLAGS=" --ssl_mode tls_listen "
+
+IMAP4S=yes
+
+IMAP4S_FLAGS=" --ssl_mode ssl_listen,ssl_outgoing "
+
+MANAGESIEVE=yes
+
+MANAGESIEVE_FLAGS=
