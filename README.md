@@ -10,7 +10,7 @@ pop3s (tcp/995)
 imap (143 , with and without tls)
 Imaps (Tcp/993)
 
-#Configuration
+# Configuration
 
 the configuration allows authentication assisted by servers mapped in the "popmap" file, which is mapped in "popmap.gdbm.db" for reading from authentication processes
 
@@ -19,7 +19,7 @@ gmail.com:imap.gmail.com
 mydomain.com:hosting1.mydomain.com
 clientdomain.com:hosting2.mydomain.com
 
-the /etc/perdition/popmap file can also be loaded using the kubernet configuration function and will be mapped at startup.
+the /etc/perdition/popmap file can also be loaded using the kubernetes configuration file function and will be mapped at startup.
 
 this configuration allows that if someone connects via "pop3s" to the server, it will send the user "user@gmail.com" in the same way to the login with the remote server "imap.gmail.com" to the pop3s port.
 
@@ -29,14 +29,14 @@ this allows you to use the protocols enabled with the destination servers (if a 
 
 the configuration will not verify the certificate with the remote server, so it can be used for different internal servers behind a firewall.
 
-#Volume
+# Volume
 
   * /etc/perdition 
 
-#Variables
+# Variables
 
   * 'TZ' - "time zone"
 
-#Files
+# Files
   * '/etc/perdition/perdition.crt.pem' - "crt file"
   * '/etc/perdition/perdition.key.pem' - "key for crt file"
