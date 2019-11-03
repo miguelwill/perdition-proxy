@@ -13,16 +13,10 @@ RUN apt-get update && \
     perdition ca-certificates \
     rsync && \
     apt-get clean
-#generate dhparam
 
-# Create and configure the VNC user
-#ARG VNCPASS
-#ENV VNCPASS ${VNCPASS:-secret}
 ENV 	TZ=America/Santiago 
 
-#RUN useradd remote --create-home --shell /bin/bash --user-group --groups adm,sudo && \
-#    echo "remote:$VNCPASS" | chpasswd
-
+# Set password for root for ssh access
 RUN echo "root:Root" | chpasswd
 
 #copy default configuration
@@ -31,8 +25,9 @@ COPY perdition/default-perdition /etc/default/perdition
 #copy configuration files into volume
 COPY perdition/* /etc/perdition/
 
+#Expose ports for services
 EXPOSE 22/tcp 110/tcp 143/tcp 993/tcp 995/tcp
-#EXPOSE 5900
+
 
 WORKDIR /etc/perdition
 
