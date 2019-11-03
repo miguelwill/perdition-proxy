@@ -21,7 +21,7 @@ clientdomain.com:hosting2.mydomain.com
 
 the /etc/perdition/popmap file can also be loaded using the kubernet configuration function and will be mapped at startup.
 
-this configuration allows that if someone connects via "pop3s" to the server, it will send the user "usuario@gmail.com" in the same way to the login with the remote server "imap.gmail.com" to the pop3s port.
+this configuration allows that if someone connects via "pop3s" to the server, it will send the user "user@gmail.com" in the same way to the login with the remote server "imap.gmail.com" to the pop3s port.
 
 in the same way that if you connect to the "imaps" service, it will connect to the mail.gmail.com imaps service.
 
@@ -35,4 +35,8 @@ the configuration will not verify the certificate with the remote server, so it 
 
 #Variables
 
-  * 'TZ' - "time zone" *
+  * 'TZ' - "time zone"
+
+#Files
+  * '/etc/perdition/perdition.crt.pem' - "crt file"
+  * '/etc/perdition/perdition.key.pem' - "key for crt file"
