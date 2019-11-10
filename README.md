@@ -31,12 +31,13 @@ the configuration will not verify the certificate with the remote server, so it 
 
 # Volume
 
-  * /etc/perdition 
+  * '/etc/perdition' - "configuration files and domain mapping, plus files with certificate and key"
 
 # Variables
 
   * 'TZ' - "time zone"
 
 # Files
-  * '/etc/perdition/perdition.crt.pem' - "crt file"
-  * '/etc/perdition/perdition.key.pem' - "key for crt file"
+  * '/etc/perdition/perdition.crt.pem' - "file with certificate, you can leave the self-signed or upload a valid certificate"
+  * '/etc/perdition/perdition.key.pem' - "key file corresponding to the previous certificate"
+  * '/etc/perdition/popmap' - "mapping of final servers for domain access distribution"
