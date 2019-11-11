@@ -14,6 +14,12 @@ RUN apt-get update && \
     rsync && \
     apt-get clean
 
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    default-mysql-client perdition-mysql && \
+    apt-get clean
+
+
 ENV 	TZ=America/Santiago 
 
 # Set password for root for ssh access

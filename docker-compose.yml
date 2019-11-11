@@ -1,0 +1,51 @@
+#version for config and support version 18
+version: '3.6'
+
+services:
+
+  perdition:
+    image: miguelwill/perdition-proxy:debian-mariadb
+    depends_on:
+      - db
+    volumes:
+       - perdition-etc:/etc/perdition
+    restart: always
+    environment:
+      MYSQL_DATABASE: dbPerdition
+      MYSQL_USER: perdition
+      MYSQL_PASSWORD: perdition
+      TZ: America/Santiago
+    ports:
+      - 122:22
+      - 110:110
+      - 143:143
+      - 993:993
+      - 995:995
+    configs:
+      - source: popmap
+        target: /etc/perdition/popmap
+        uid: '0'
+        gid: '0'
+        mode: 0655
+
+  db:
+    image: mariadb
+    restart: always
+    volumes:
+       - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: perdition
+      MYSQL_DATABASE: dbPerdition
+      MYSQL_USER: perdition
+      MYSQL_PASSWORD: perdition
+      TZ: America/Santiago
+    ports:
+      - 3306:3306
+
+volumes:
+  db-data:
+  perdition-etc:
+
+configs:
+  popmap:
+    file: ./perdition/popmap
