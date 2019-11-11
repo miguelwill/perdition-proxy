@@ -29,6 +29,8 @@ this allows you to use the protocols enabled with the destination servers (if a 
 
 the configuration will not verify the certificate with the remote server, so it can be used for different internal servers behind a firewall.
 
+In the branch "debian-mariadb" use mariadb database for map servers and users
+
 # Volume
 
   * '/etc/perdition' - "configuration files and domain mapping, plus files with certificate and key"
