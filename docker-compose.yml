@@ -23,7 +23,7 @@ services:
       - 995:995
     configs:
       - source: popmap
-        target: /popmap
+        target: /config/popmap
         uid: '0'
         gid: '0'
         mode: 0655

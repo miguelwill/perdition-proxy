@@ -32,9 +32,9 @@ else
 fi
 
 #import server list from popmap file to table in DB
-if [ -f /popmap ]
+if [ -f /config/popmap ]
 then
-	cp -f /popmap /etc/perdition/popmap
+	cp -f /config/popmap /etc/perdition/popmap
 fi
 
 
