@@ -31,6 +31,17 @@ the configuration will not verify the certificate with the remote server, so it 
 
 In the branch "debian-mariadb" use mariadb database for map servers and users
 
+parameters of connection to database are in file /etc/perdition.conf in the following line:
+map_library_opt "db:3306:dbPerdition:tblPerdition:perdition:perdition:servername:user:port"
+
+these parameters are also defined in docker-compose.yml file
+
+# Add Stack with config
+  * download files from https://github.com/miguelwill/perdition-proxy
+  * edit popmap file adding domains and servers
+  * run for deploy stack : docker stack deploy -c docker-compose.yml proxypopdb
+  * waith for db initialization
+
 # Volume
 
   * '/etc/perdition' - "configuration files and domain mapping, plus files with certificate and key"
