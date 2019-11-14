@@ -32,6 +32,13 @@ else
 fi
 
 #import server list from popmap file to table in DB
+if [ -f /config/popmap ]
+then
+	cp -f /config/popmap /etc/perdition/popmap
+fi
+
+
+
 for i in $(cat /etc/perdition/popmap);
 do
         DOMAIN=$(echo $i|cut -d: -f1);

@@ -42,6 +42,10 @@ these parameters are also defined in docker-compose.yml file
   * run for deploy stack : docker stack deploy -c docker-compose.yml proxypopdb
   * waith for db initialization
 
+# Kubernetes / Rancher
+  * you can create a configuration map with the list of domains and servers, and mount via volume in the path "/config", making available the path /config/popmap
+  * /main.sh will import the list into the database at pod startup 
+
 # Volume
 
   * '/etc/perdition' - "configuration files and domain mapping, plus files with certificate and key"
