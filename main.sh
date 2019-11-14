@@ -12,6 +12,7 @@ HOST="DB"
 
 
 while ! mysqladmin ping -h"$HOST" --silent; do
+    echo "waiting for mariadb service port....";
     sleep 1
 done
 #makegdbm /etc/perdition/popmap.gdbm.db < /etc/perdition/popmap
