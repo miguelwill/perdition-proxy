@@ -53,6 +53,10 @@ these parameters are also defined in docker-compose.yml file
 # Variables
 
   * 'TZ' - "time zone"
+  * MYSQL_ROOT_PASSWORD: perdition
+  * MYSQL_DATABASE: dbPerdition
+  * MYSQL_USER: perdition
+  * MYSQL_PASSWORD: perdition
 
 # Files
   * '/etc/perdition/perdition.crt.pem' - "file with certificate, you can leave the self-signed or upload a valid certificate"
