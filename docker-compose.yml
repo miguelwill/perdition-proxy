@@ -14,6 +14,7 @@ services:
       MYSQL_DATABASE: dbPerdition
       MYSQL_USER: perdition
       MYSQL_PASSWORD: perdition
+      MYSQL_HOST: db
       TZ: America/Santiago
     ports:
       - 122:22
