@@ -8,7 +8,7 @@ KEY="/etc/perdition/perdition.key.pem"
 DB=$MYSQL_DATABASE
 USER=$MYSQL_USER
 PASS=$MYSQL_PASSWORD
-HOST="DB"
+HOST="db"
 
 
 while ! mysqladmin ping -h"$HOST" --silent; do
