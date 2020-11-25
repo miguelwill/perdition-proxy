@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-
 CRT="/etc/perdition/perdition.crt.pem"
 KEY="/etc/perdition/perdition.key.pem"
 DB=$MYSQL_DATABASE
@@ -15,7 +12,6 @@ while ! mysqladmin ping -h"$HOST" --silent; do
     echo "waiting for mariadb service port....";
     sleep 1
 done
-#makegdbm /etc/perdition/popmap.gdbm.db < /etc/perdition/popmap
 
 #DB initialization
 
@@ -37,8 +33,6 @@ then
 	cp -f /config/popmap /etc/perdition/popmap
 fi
 
-
-
 for i in $(cat /etc/perdition/popmap);
 do
         DOMAIN=$(echo $i|cut -d: -f1);
@@ -50,12 +44,6 @@ done
 
 /etc/init.d/rsyslog start
 
-mkdir -m600  /run/sshd
-/etc/init.d/ssh start
-
 /etc/init.d/perdition start
-
-#/usr/sbin/perdition -d -f /etc/perdition/perdition.conf
-
 
 tail -f /var/log/syslog
