@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+
+  perdition:
+    image: miguelwill/perdition-proxy:debian-buster
+    container_name: perdition
+    volumes:
+      #load popmap file from a copy or load from configuration in cluster in this path, by default include one with gmail example
+      - ./popmap:/etc/perdition/popmap:ro
+      # add crt and key files if you have them, or if you sign them with let's encrypt use the update path to have them loaded at the next container restart
+      #- ./perdition.crt.pem:/etc/perdition/perdition.crt.pem:ro
+      #- ./perdition.key.pem:/etc/perdition/perdition.key.pem:ro
+    restart: always
+    environment:
+      TZ: America/Santiago
+    ports:
+      - 110:110
+      - 143:143
+      - 993:993
+      - 995:995

@@ -1,33 +1,27 @@
-FROM debian:buster
+FROM debian:buster-slim
 
 LABEL maintainer "miguelwill@gmail.com"
 
-VOLUME /etc/perdition
-
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    openssh-server \
-    curl \
-    wget \
-    net-tools vim rsyslog \
-    perdition ca-certificates \
-    rsync && \
+    openssl \
+    rsyslog \
+    perdition \
+    procps \
+    ca-certificates && \
     apt-get clean
 
-ENV 	TZ=America/Santiago 
-
-# Set password for root for ssh access
-RUN echo "root:Root" | chpasswd
+#create new dhparam with new image
+RUN openssl dhparam -out /etc/perdition/dhparam.pem 2048
 
 #copy default configuration
 COPY perdition/default-perdition /etc/default/perdition
 
-#copy configuration files into volume
+#copy configuration files into configuration folder
 COPY perdition/* /etc/perdition/
 
 #Expose ports for services
-EXPOSE 22/tcp 110/tcp 143/tcp 993/tcp 995/tcp
-
+EXPOSE 110/tcp 143/tcp 993/tcp 995/tcp
 
 WORKDIR /etc/perdition
 
@@ -36,4 +30,3 @@ COPY main.sh /
 
 ENTRYPOINT ["/main.sh"]
 CMD ["DEFAULT"]
-
