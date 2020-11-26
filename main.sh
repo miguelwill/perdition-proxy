@@ -7,6 +7,6 @@ makegdbm /etc/perdition/popmap.gdbm.db < /etc/perdition/popmap
 
 /etc/init.d/rsyslog start
 
-/etc/init.d/perdition start
+/etc/init.d/perdition restart
 
 tail -f /var/log/syslog
