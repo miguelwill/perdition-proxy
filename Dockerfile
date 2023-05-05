@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bullseye
 
 LABEL maintainer "miguelwill@gmail.com"
 
@@ -8,13 +8,15 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     rsyslog \
     perdition \
-    ca-certificates && \
+    ca-certificates \
+    default-mysql-client \
+    perdition-mysql && \
     apt-get clean
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    default-mysql-client perdition-mysql && \
-    apt-get clean
+#RUN apt-get update && \
+#    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+#    default-mysql-client perdition-mysql && \
+#    apt-get clean
 
 #copy default configuration
 COPY perdition/default-perdition /etc/default/perdition
