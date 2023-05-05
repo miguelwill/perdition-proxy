@@ -20,6 +20,8 @@ COPY perdition/* /etc/perdition/
 #create new dhparam with new image
 RUN openssl dhparam -out /etc/perdition/dhparam.pem 2048
 
+RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf
+
 #Expose ports for services
 EXPOSE 110/tcp 143/tcp 993/tcp 995/tcp
 
