@@ -51,8 +51,10 @@ if [ ! -f "$CRT" ] || [ ! -f "$KEY" ]; then
 fi
 
 
-/etc/init.d/rsyslog start
+/usr/sbin/rsyslogd -n -iNONE &
+touch /var/log/syslog
+chown syslog.adm /var/log/syslog
 
-/etc/init.d/perdition start
+/etc/init.d/perdition start &
 
 tail -f /var/log/syslog
