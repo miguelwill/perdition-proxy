@@ -1,4 +1,3 @@
-#FROM debian:bullseye
 FROM ubuntu:bionic
 
 LABEL maintainer "miguelwill@gmail.com"
