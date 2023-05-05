@@ -3,7 +3,7 @@ version: '3.6'
 services:
 
   perdition:
-    image: miguelwill/perdition-proxy:ubuntu-bionic
+    image: miguelwill/perdition-proxy:ubuntu-jammy
     container_name: perdition
     volumes:
       #load popmap file from a copy or load from configuration in cluster in this path, by default include one with gmail example
