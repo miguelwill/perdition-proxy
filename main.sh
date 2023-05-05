@@ -42,6 +42,15 @@ do
         echo $INSERT | mysql -h$HOST -u$USER -p$PASS $DB;
 done
 
+
+if [ ! -f "$CRT" ] || [ ! -f "$KEY" ]; then
+    echo "certificado y key no definido, generando nuevo"
+    # Generar certificado autofirmado y key
+    openssl req -new -x509 -days 365 -nodes -out $CRT -keyout $KEY -subj "/C=CL/ST=MT/L=Santiago/O=My Organization/OU=TI/CN=perdition-proxy.org"
+
+fi
+
+
 /etc/init.d/rsyslog start
 
 /etc/init.d/perdition start
