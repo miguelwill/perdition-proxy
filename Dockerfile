@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 LABEL maintainer "miguelwill@gmail.com"
 
@@ -29,7 +29,7 @@ COPY perdition/* /etc/perdition/
 
 #create new dhparam with new image
 RUN openssl rand -writerand /root/.rnd && \
-    openssl dhparam -out /etc/perdition/dhparam.pem 2048
+    openssl dhparam -out /etc/perdition/dhparam.dh 2048
 
 #Expose ports for services
 EXPOSE 110/tcp 143/tcp 993/tcp 995/tcp
